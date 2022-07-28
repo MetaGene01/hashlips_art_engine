@@ -139,7 +139,7 @@ const addMetadata = (_dna, _edition) => {
     date: dateTime,
     ...extraMetadata,
     attributes: attributesList,
-    compiler: "HashLips Art Engine",
+    // compiler: "HashLips Art Engine",
   };
   if (network == NETWORK.sol) {
     tempMetadata = {
@@ -300,6 +300,28 @@ const createDna = (_layers) => {
       }
     }
   });
+
+  let headId = _layers.find(layer => layer.name == "Head").id;
+  let eyesAccessoryId = _layers.find(layer => layer.name == "Eyes Accessory").id;
+
+  if(
+    randNum.some(a => a.indexOf(`${headId}:Cap`) != -1) &&
+    randNum.none(a => a.indexOf(`${eyesAccessoryId}:Laser`) != -1)
+  )
+    return createDna(_layers);
+
+  let bodyId = _layers.find(layer => layer.name == "Body").id;
+  let neckId = _layers.find(layer => layer.name == "Neck").id;
+  if(
+    randNum.some(a =>
+      a.indexOf(`${bodyId}:Classic`) != -1 ||
+      a.indexOf(`${bodyId}:Sweater`) != -1
+    )
+  ){
+    let neckIndex = randNum.findIndex(a => a.indexOf(`${neckId}:`) != -1);
+    randNum.splice(neckIndex, 1);
+  }
+
   return randNum.join(DNA_DELIMITER);
 };
 

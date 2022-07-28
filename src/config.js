@@ -2,29 +2,35 @@ const basePath = process.cwd();
 const { MODE } = require(`${basePath}/constants/blend_mode.js`);
 const { NETWORK } = require(`${basePath}/constants/network.js`);
 
-const network = NETWORK.eth;
+const network = NETWORK.sol;
 
 // General metadata for Ethereum
-const namePrefix = "Your Collection";
-const description = "Remember to replace this description";
+const namePrefix = "MatrixCity - THE FOX ONE";
+const description = "If you have a Fox, then you've been chosen to awake. Keep them, owning will give you access to the MatrixCity Ecosystem and protect you from any FUD via Cross-Functional DAO. There're only 3333 Foxes, which means only the Chosen Ones will be saved...";
 const baseUri = "ipfs://NewUriToReplace";
 
 const solanaMetadata = {
-  symbol: "YC",
-  seller_fee_basis_points: 1000, // Define how much % you want from secondary market sales 1000 = 10%
-  external_url: "https://www.youtube.com/c/hashlipsnft",
+  symbol: "SMC",
+  // Define how much % you want from secondary market sales 1000 = 10%
+  seller_fee_basis_points: 1000,
+  external_url: "https://matrixcitynft.com",
   creators: [
     {
-      address: "7fXNuer5sbZtaTEPhtJ5g5gNtuyRoKkvxdjEjEnPN4mC",
-      share: 100,
+      address: "2XyyfPbkqB7zgxsutumaru2Rk7DAAeGZ9wRQUagUXYEr",
+      share: 50,
+    },
+    {
+      address: "HhXgjE7q67SM1AMauXsetdTVRbn9LMtqLXab864LBP3c",
+      share: 50,
     },
   ],
 };
 
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
+  // Great
   {
-    growEditionSizeTo: 5,
+    growEditionSizeTo: 1101,
     layersOrder: [
       { name: "Background" },
       { name: "Eyes" },
@@ -34,18 +40,59 @@ const layerConfigurations = [
       { name: "Head" },
       { name: "Mouth" },
       { name: "Neck" },
-      { name: "Tribe" },
+      {
+        name: "Great",
+        displayName: "Tribe",
+      },
+    ],
+  },
+
+  // Neutral
+  {
+    growEditionSizeTo: 1303,
+    layersOrder: [
+      { name: "Background" },
+      { name: "Eyes" },
+      { name: "Fur" },
+      { name: "Eyes Accessory" },
+      { name: "Body" },
+      { name: "Head" },
+      { name: "Mouth" },
+      { name: "Neck" },
+      {
+        name: "Neutral",
+        displayName: "Tribe",
+      },
+    ],
+  },
+
+  // Shadow
+  {
+    growEditionSizeTo: 929,
+    layersOrder: [
+      { name: "Background" },
+      { name: "Eyes" },
+      { name: "Fur" },
+      { name: "Eyes Accessory" },
+      { name: "Body" },
+      { name: "Head" },
+      { name: "Mouth" },
+      { name: "Neck" },
+      {
+        name: "Shadow",
+        displayName: "Tribe",
+      },
     ],
   },
 ];
 
-const shuffleLayerConfigurations = false;
+const shuffleLayerConfigurations = true;
 
 const debugLogs = false;
 
 const format = {
-  width: 512,
-  height: 512,
+  width: 1920,
+  height: 1920,
   smoothing: false,
 };
 
