@@ -303,7 +303,6 @@ const createDna = (_layers) => {
 
   let headId = _layers.find(layer => layer.name == "Head").id;
   let eyesAccessoryId = _layers.find(layer => layer.name == "Eyes Accessory").id;
-
   if(
     randNum.some(a => a.indexOf(`${headId}:Cap`) != -1) &&
     randNum.none(a => a.indexOf(`${eyesAccessoryId}:Laser`) != -1)

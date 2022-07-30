@@ -27,10 +27,11 @@ const solanaMetadata = {
 };
 
 // If you have selected Solana then the collection starts from 0 automatically
+let nftCount = 0;
 const layerConfigurations = [
   // Great
   {
-    growEditionSizeTo: 1101,
+    growEditionSizeTo: nftCount += 1101,
     layersOrder: [
       { name: "Background" },
       { name: "Eyes" },
@@ -49,7 +50,7 @@ const layerConfigurations = [
 
   // Neutral
   {
-    growEditionSizeTo: 1303,
+    growEditionSizeTo: nftCount += 1303,
     layersOrder: [
       { name: "Background" },
       { name: "Eyes" },
@@ -68,7 +69,7 @@ const layerConfigurations = [
 
   // Shadow
   {
-    growEditionSizeTo: 929,
+    growEditionSizeTo: nftCount += 929,
     layersOrder: [
       { name: "Background" },
       { name: "Eyes" },
