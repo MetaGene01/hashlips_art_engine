@@ -34,7 +34,10 @@ const layerConfigurations = [
     growEditionSizeTo: nftCount += 1101,
     layersOrder: [
       { name: "Background" },
-      { name: "Eyes" },
+      {
+        name: "Blue Eyes",
+        displayName: "Eyes",
+      },
       { name: "Fur" },
       { name: "Eyes Accessory" },
       { name: "Body" },
