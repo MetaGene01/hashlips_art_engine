@@ -302,23 +302,20 @@ const createDna = (_layers) => {
   });
 
   let headId = _layers.find(layer => layer.name == "Head").id;
-  let eyesAccessoryId = _layers.find(layer => layer.name == "Eyes Accessory").id;
+  let eyesAccessoryId = _layers.find(layer => layer.name == "Eyes Props").id;
   if(
     randNum.some(a => a.indexOf(`${headId}:Cap`) != -1) &&
     randNum.none(a => a.indexOf(`${eyesAccessoryId}:Laser`) != -1)
   )
     return createDna(_layers);
 
-  let bodyId = _layers.find(layer => layer.name == "Body").id;
-  let neckId = _layers.find(layer => layer.name == "Neck").id;
-  if(
-    randNum.some(a =>
-      a.indexOf(`${bodyId}:Classic`) != -1 ||
-      a.indexOf(`${bodyId}:Sweater`) != -1
-    )
-  ){
-    let neckIndex = randNum.findIndex(a => a.indexOf(`${neckId}:`) != -1);
-    randNum.splice(neckIndex, 1);
+  let bodyIndex = _layers.find(layer => layer.name == "Body").id;
+  let neckIndex = _layers.find(layer => layer.name == "Neck").id;
+  if(randNum[bodyIndex].match(/Suit|Sweater|Hoodie/)){
+    let { id, filename } = _layers[neckIndex].elements.find(({ filename }) =>
+      filename.includes("No Neck")
+    );
+    randNum[neckIndex] = `${id}:${filename}`;
   }
 
   return randNum.join(DNA_DELIMITER);

@@ -27,65 +27,20 @@ const solanaMetadata = {
 };
 
 // If you have selected Solana then the collection starts from 0 automatically
-let nftCount = 0;
 const layerConfigurations = [
-  // Great
   {
-    growEditionSizeTo: nftCount += 1101,
+    growEditionSizeTo: 3333,
     layersOrder: [
-      { name: "Background" },
-      {
-        name: "Blue Eyes",
-        displayName: "Eyes",
-      },
-      { name: "Fur" },
-      { name: "Eyes Accessory" },
-      { name: "Body" },
-      { name: "Head" },
-      { name: "Mouth" },
-      { name: "Neck" },
-      {
-        name: "Great",
-        displayName: "Tribe",
-      },
-    ],
-  },
-
-  // Neutral
-  {
-    growEditionSizeTo: nftCount += 1303,
-    layersOrder: [
+      { name: "Tribe" },
+      { name: "Dimension" },
       { name: "Background" },
       { name: "Eyes" },
       { name: "Fur" },
-      { name: "Eyes Accessory" },
       { name: "Body" },
+      { name: "Eyes Props" },
       { name: "Head" },
-      { name: "Mouth" },
-      { name: "Neck" },
-      {
-        name: "Neutral",
-        displayName: "Tribe",
-      },
-    ],
-  },
-
-  // Shadow
-  {
-    growEditionSizeTo: nftCount += 929,
-    layersOrder: [
-      { name: "Background" },
-      { name: "Eyes" },
-      { name: "Fur" },
-      { name: "Eyes Accessory" },
-      { name: "Body" },
-      { name: "Head" },
-      { name: "Mouth" },
-      { name: "Neck" },
-      {
-        name: "Shadow",
-        displayName: "Tribe",
-      },
+      // { name: "Mouth" },
+      { name: "Neck" }
     ],
   },
 ];
