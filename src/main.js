@@ -301,17 +301,19 @@ const createDna = (_layers) => {
     }
   });
 
-  let headId = _layers.find(layer => layer.name == "Head").id;
-  let eyesAccessoryId = _layers.find(layer => layer.name == "Eyes Props").id;
-  if(
-    randNum.some(a => a.indexOf(`${headId}:Cap`) != -1) &&
-    randNum.none(a => a.indexOf(`${eyesAccessoryId}:Laser`) != -1)
+  let headIndex = _layers.find((layer) => layer.name == "Head").id;
+  let eyesAccessoryIndex = _layers.find(
+    (layer) => layer.name == "Eyes Props"
+  ).id;
+  if (
+    randNum[headIndex].includes("Cap") &&
+    !randNum[eyesAccessoryIndex].includes("Laser")
   )
     return createDna(_layers);
 
-  let bodyIndex = _layers.find(layer => layer.name == "Body").id;
-  let neckIndex = _layers.find(layer => layer.name == "Neck").id;
-  if(randNum[bodyIndex].match(/Suit|Sweater|Hoodie/)){
+  let bodyIndex = _layers.find((layer) => layer.name == "Body").id;
+  let neckIndex = _layers.find((layer) => layer.name == "Neck").id;
+  if (randNum[bodyIndex].match(/Suit|Sweater|Hoodie/)) {
     let { id, filename } = _layers[neckIndex].elements.find(({ filename }) =>
       filename.includes("No Neck")
     );
