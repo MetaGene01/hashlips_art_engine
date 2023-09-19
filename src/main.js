@@ -305,6 +305,12 @@ const createDna = (_layers) => {
   let eyesAccessoryIndex = _layers.find(
     (layer) => layer.name == "Eyes Props"
   ).id;
+  if (
+    randNum[headIndex].includes("Cap") &&
+    !randNum[eyesAccessoryIndex].includes("Laser") &&
+    !randNum[eyesAccessoryIndex].includes("None")
+  )
+    return createDna(_layers);
 
   let bodyIndex = _layers.find((layer) => layer.name == "Body").id;
   let neckIndex = _layers.find((layer) => layer.name == "Neck").id;
